@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Maio-2018 às 02:14
+-- Generation Time: 11-Jun-2018 às 16:42
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -31,10 +31,28 @@ SET time_zone = "+00:00";
 CREATE TABLE `alternativas` (
   `al_idalternativa` int(11) NOT NULL,
   `al_texto` varchar(50) DEFAULT NULL,
-  `al_tipo` varchar(45) DEFAULT NULL,
+  `al_tipo` varchar(1) DEFAULT NULL,
   `al_idquestao` int(11) DEFAULT NULL,
-  `al_correta` char(1) DEFAULT NULL
+  `al_correta` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `alternativas`
+--
+
+INSERT INTO `alternativas` (`al_idalternativa`, `al_texto`, `al_tipo`, `al_idquestao`, `al_correta`) VALUES
+(1, 'Monte Everest', 'A', 1, 1),
+(2, 'Monte Fuji', 'B', 1, 0),
+(3, 'Monte K2', 'C', 1, 0),
+(4, 'Kangchenjunga', 'D', 1, 0),
+(38, '81', 'A', 81, 1),
+(39, '90', 'B', 81, 0),
+(40, 'Raiz de  9', 'C', 81, 1),
+(41, '80', 'D', 81, 0),
+(42, 'If this feeling flows both ways ', 'A', 84, 0),
+(43, 'Have you got color in your cheeks', 'B', 84, 0),
+(44, 'Crawling back to you', 'C', 84, 0),
+(45, 'Sad to see you go', 'D', 84, 0);
 
 -- --------------------------------------------------------
 
@@ -56,7 +74,8 @@ CREATE TABLE `aluno` (
 INSERT INTO `aluno` (`al_idusuario`, `al_matricula`, `al_ano`, `al_turma`) VALUES
 (3, '6434', 6, 3),
 (4, '999123', 9, 4),
-(5, '793231', 8, 4);
+(5, '793231', 8, 4),
+(8, '23456', 8, 2);
 
 -- --------------------------------------------------------
 
@@ -122,7 +141,8 @@ CREATE TABLE `professor` (
 INSERT INTO `professor` (`pr_idusuario`, `pr_matricula`, `pr_area`) VALUES
 (1, '348931', 4),
 (2, '1122', 3),
-(6, '45632', 5);
+(6, '45632', 5),
+(7, '1345', 4);
 
 -- --------------------------------------------------------
 
@@ -138,6 +158,15 @@ CREATE TABLE `questao` (
   `qu_idusuario` int(11) DEFAULT NULL,
   `qu_textoquestao` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `questao`
+--
+
+INSERT INTO `questao` (`qu_idquestao`, `qu_idarea`, `qu_ano`, `qu_idnivel`, `qu_idusuario`, `qu_textoquestao`) VALUES
+(1, 3, 9, 1, 2, 'Qual e o monte mais alto do mundo?'),
+(81, 6, 7, 3, 1, '9x9'),
+(84, 5, 8, 3, 2, 'Do I Wanna Know?');
 
 -- --------------------------------------------------------
 
@@ -196,9 +225,11 @@ INSERT INTO `usuario` (`us_idusuario`, `us_nome`, `us_email`, `us_senha`, `us_da
 (1, 'Jefferson Chaves', 'jefferson.chaves@ifc.edu.br', 'jeff123', '1990-05-01'),
 (2, 'Rafael De Moura Speroni', 'rafael.speroni@ifc.edu.br', 'rafael123', '1985-10-15'),
 (3, 'Marlon Guarnieri', 'marlon.guarnieri@gmail.com', 'marlon123', '2000-07-15'),
-(4, 'Guilherme Cipriano', 'guilherme.cp@live.com', 'Guilherme123', '2000-11-13'),
+(4, 'Guilherme Cipriano', 'guilherme.cp@live.com', 'guilherme123', '2000-11-13'),
 (5, 'Andriele Cristina Vogel', 'andrielecristina@gmail.com', 'andriele123', '2000-11-07'),
-(6, 'Jonathan Ache Dias', 'jonathan.dias@ifc.edu.br', 'jonathan123', '1990-05-17');
+(6, 'Jonathan Ache Dias', 'jonathan.dias@ifc.edu.br', 'jonathan123', '1990-05-17'),
+(7, 'Edvanderson Ramalho Dos Santos', 'edvanderson@ifc.edu.br', 'eddie123', '1964-11-13'),
+(8, 'Mateus Erkmann', 'hipergeniusx@gmail.com', 'russo123', '1998-03-28');
 
 --
 -- Indexes for dumped tables
@@ -274,13 +305,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `al_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `al_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `area`
@@ -298,7 +329,7 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT for table `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `resposta`
@@ -316,7 +347,7 @@ ALTER TABLE `turma`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `us_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `us_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
