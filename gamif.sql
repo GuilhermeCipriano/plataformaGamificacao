@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 11-Jun-2018 às 16:42
+-- Generation Time: 05-Jul-2018 às 20:54
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternativas` (
   `al_idalternativa` int(11) NOT NULL,
-  `al_texto` varchar(50) DEFAULT NULL,
+  `al_texto` varchar(300) DEFAULT NULL,
   `al_tipo` varchar(1) DEFAULT NULL,
   `al_idquestao` int(11) DEFAULT NULL,
   `al_correta` tinyint(1) DEFAULT NULL
@@ -46,13 +46,65 @@ INSERT INTO `alternativas` (`al_idalternativa`, `al_texto`, `al_tipo`, `al_idque
 (3, 'Monte K2', 'C', 1, 0),
 (4, 'Kangchenjunga', 'D', 1, 0),
 (38, '81', 'A', 81, 1),
-(39, '90', 'B', 81, 0),
-(40, 'Raiz de  9', 'C', 81, 1),
+(39, '90', 'B', 81, 1),
+(40, 'Raiz de  9', 'C', 81, 0),
 (41, '80', 'D', 81, 0),
 (42, 'If this feeling flows both ways ', 'A', 84, 0),
 (43, 'Have you got color in your cheeks', 'B', 84, 0),
 (44, 'Crawling back to you', 'C', 84, 0),
-(45, 'Sad to see you go', 'D', 84, 0);
+(45, 'Sad to see you go', 'D', 84, 0),
+(46, 'mau humorada, mau.', 'A', 85, 0),
+(47, 'mÃ¡-humorada, mal.', 'B', 85, 0),
+(48, 'mal humorada, mau.', 'C', 85, 0),
+(49, 'mal-humorada, mal.', 'D', 85, 1),
+(50, 'gejum, jeito, gesto, jenipapo', 'A', 86, 0),
+(51, 'jejum, geito, jesto genipapo', 'B', 86, 0),
+(52, ' jejum, jeito, gesto, jenipapo', 'C', 86, 1),
+(53, 'gejum, geito, jesto, jenipapo', 'D', 86, 0),
+(54, 'Porque, Por quÃª, por que e porquÃª.', 'A', 87, 0),
+(55, 'Por quÃª, PorquÃª, porque e por que.', 'B', 87, 0),
+(56, 'PorquÃª, Por que, Por quÃª e porque.', 'C', 87, 0),
+(57, ' Por que, Porque, por quÃª e porquÃª.', 'D', 87, 1),
+(58, ' CiÃªncia que tem por objeto de estudo as moedas e', 'A', 88, 1),
+(59, 'CiÃªncia que estuda objetos e artefatos do antigo ', 'B', 88, 0),
+(60, 'CiÃªncia que estuda patriÃ´nios histÃ³ricos.', 'C', 88, 0),
+(61, 'CiÃªncia que estuda montanhas, vales cumes e de ma', 'D', 88, 0),
+(62, 'Denis acompanhou Arnaldo pelas ruas do Rio de Jane', 'A', 89, 0),
+(63, 'Denis guiou Arnaldo pelas ruas do Rio de Janeiro.', 'B', 89, 1),
+(64, 'Denis gritou Arnaldo pelas ruas do Rio de Janeiro.', 'C', 89, 0),
+(65, 'Denis seguiu Arnaldo pelas ruas do Rio de Janeiro.', 'D', 89, 0),
+(66, 'Encostar', 'A', 90, 0),
+(67, 'Inverter', 'B', 90, 0),
+(68, ' Iludir', 'C', 90, 1),
+(69, 'Engordar', 'D', 90, 0),
+(70, 'Enfrente e enfrente', 'A', 91, 0),
+(71, 'Em frente e em frenta', 'B', 91, 0),
+(72, 'Em frente e enfrente', 'C', 91, 1),
+(73, 'Enfrente e em frenta', 'D', 91, 0),
+(74, 'Corado', 'A', 92, 0),
+(75, 'Avermelhado', 'B', 92, 0),
+(76, 'GrenÃ¡', 'C', 92, 0),
+(77, 'Brilhante', 'D', 92, 1),
+(78, ' Couves-flor, girassÃ³is, pudim, giz e lÃ¡pises.', 'A', 93, 0),
+(79, ' Couves-flores, girassÃ³is, pudins, gizes e lÃ¡pis', 'B', 93, 1),
+(80, ' Couves-flores, girassÃ³is, pudim, giz lÃ¡pises.', 'C', 93, 0),
+(81, 'Couves-flor, girassols, pudins, gizes e lÃ¡pis.', 'D', 93, 0),
+(82, ' Ã€, meia, A e meio.', 'A', 94, 0),
+(83, ' A, meio, HÃ¡ e meia.', 'B', 94, 0),
+(84, 'Ã€, meia, A e meio.', 'C', 94, 0),
+(85, ' Ã€, meia, A e meio.', 'D', 94, 0),
+(86, 'BrasÃ­lia', 'A', 95, 1),
+(87, 'SÃ£o Paulo', 'B', 95, 0),
+(88, 'Rio de Janeiro', 'C', 95, 0),
+(89, 'Salvador', 'D', 95, 0),
+(90, 'DÃ³, rÃ©, mi, fa, so, la, si.', 'A', 96, 1),
+(91, 'dÃ³, rÃ©, fa, so, la, si, mi', 'B', 96, 0),
+(92, 'dÃ³, rÃ©, mi, si, so, fa, la', 'C', 96, 0),
+(93, 'dÃ³, rÃ©, la, so, fa, si, mi', 'D', 96, 0),
+(94, 'A, ante, até, após, com, contra, de, desde, em, entre, para, perante, por, sem, sob, sobre e trás', 'A', 97, 1),
+(95, 'A, o, as, os', 'B', 97, 0),
+(96, 'Um, uma, uns, umas', 'C', 97, 0),
+(97, 'os, as, se, lhes', 'D', 97, 0);
 
 -- --------------------------------------------------------
 
@@ -64,18 +116,19 @@ CREATE TABLE `aluno` (
   `al_idusuario` int(11) NOT NULL,
   `al_matricula` varchar(45) DEFAULT NULL,
   `al_ano` int(11) DEFAULT NULL,
-  `al_turma` int(11) DEFAULT NULL
+  `al_turma` int(11) DEFAULT NULL,
+  `al_pontos` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `aluno`
 --
 
-INSERT INTO `aluno` (`al_idusuario`, `al_matricula`, `al_ano`, `al_turma`) VALUES
-(3, '6434', 6, 3),
-(4, '999123', 9, 4),
-(5, '793231', 8, 4),
-(8, '23456', 8, 2);
+INSERT INTO `aluno` (`al_idusuario`, `al_matricula`, `al_ano`, `al_turma`, `al_pontos`) VALUES
+(3, '6434', 6, 3, 0),
+(4, '999123', 9, 4, 0),
+(5, '793231', 8, 4, 0),
+(8, '23456', 8, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -156,6 +209,7 @@ CREATE TABLE `questao` (
   `qu_ano` int(11) DEFAULT NULL,
   `qu_idnivel` int(11) DEFAULT NULL,
   `qu_idusuario` int(11) DEFAULT NULL,
+  `qu_pontosquestao` int(3) NOT NULL,
   `qu_textoquestao` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -163,10 +217,23 @@ CREATE TABLE `questao` (
 -- Extraindo dados da tabela `questao`
 --
 
-INSERT INTO `questao` (`qu_idquestao`, `qu_idarea`, `qu_ano`, `qu_idnivel`, `qu_idusuario`, `qu_textoquestao`) VALUES
-(1, 3, 9, 1, 2, 'Qual e o monte mais alto do mundo?'),
-(81, 6, 7, 3, 1, '9x9'),
-(84, 5, 8, 3, 2, 'Do I Wanna Know?');
+INSERT INTO `questao` (`qu_idquestao`, `qu_idarea`, `qu_ano`, `qu_idnivel`, `qu_idusuario`, `qu_pontosquestao`, `qu_textoquestao`) VALUES
+(1, 3, 9, 1, 2, 0, 'Qual e o monte mais alto do mundo?'),
+(81, 6, 7, 3, 2, 0, '9x9'),
+(84, 5, 8, 3, 2, 0, 'Do I Wanna Know?'),
+(85, 7, 6, 1, 2, 0, 'Complete: Andriele estÃ¡ ___, pois dormiu ___ durante a noite.'),
+(86, 7, 6, 1, 2, 0, 'Qual conjunto de palavras estÃ¡ correto?'),
+(87, 7, 6, 1, 2, 0, 'Na ordem da conversa, qual a colocaÃ§Ã£o correta? JoÃ£o: ___ Ã© separado? Bia: ____ nÃ£o Ã© junto! JoÃ£o: Mas ___? Bia: O ____ eu nÃ£o sei.'),
+(88, 7, 6, 1, 2, 0, 'Qual a definiÃ§Ã£o da palavra \"NumismÃ¡tica\"?'),
+(89, 7, 6, 1, 2, 0, 'Denis \"ciceroneou\" Arnaldo pelas ruas do Rio de Janeiro. Qual frase que modificada a palavra tem o mesmo sentido?'),
+(90, 7, 6, 1, 2, 0, '\"Engodar\" Ã© o mesmo que:'),
+(91, 7, 6, 1, 2, 0, 'Complete: Siga ___ e ___ seus medos.'),
+(92, 7, 6, 1, 2, 0, 'Qual destas palavras nÃ£o Ã© sinÃ´nimo de \"Rubicundo\"?'),
+(93, 7, 6, 1, 2, 0, 'Qual o plural correto de Couve-flor, girassol, pudim, giz e lÃ¡pis ?'),
+(94, 7, 6, 1, 2, 0, 'Complete corretamente a oraÃ§Ã£o: ___ noiva chegou ___ atrasada, o casamento comeÃ§ou ___ quinze minutos e vai terminar meio-dia e ___.'),
+(95, 3, 7, 2, 2, 10, 'Capital do Brasil?'),
+(96, 1, 9, 2, 2, 5, 'Quais sÃ£o as notas musicais na ordem correta?'),
+(97, 7, 9, 2, 7, 5, 'Quais das palavras abaixo são preposições?');
 
 -- --------------------------------------------------------
 
@@ -305,7 +372,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `aluno`
@@ -329,7 +396,7 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT for table `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `resposta`
