@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Ago-2018 às 13:05
+-- Generation Time: 13-Ago-2018 às 01:49
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -44,18 +44,18 @@ INSERT INTO `alternativas` (`al_idalternativa`, `al_texto`, `al_idquestao`, `al_
 (2, 'R$ 230', 3, 0),
 (3, 'R$ 200,30', 3, 0),
 (4, ' R$ 220,30', 3, 0),
-(5, 'Ã‰ impossÃ­vel que a soma seja igual a zero, pois sempre que se somam dois nÃºmeros o resultado deve ser maior que eles.', 4, 0),
-(6, 'Ã‰ possÃ­vel que a soma seja igual a zero, bastando para isso que x seja o elemento neutro da adiÃ§Ã£o.', 4, 0),
-(7, 'Ã‰ impossÃ­vel que a soma seja igual a zero, pois, dados os nÃºmeros x e y, com x menor que y, o menor resultado possÃ­vel para essa soma Ã© o prÃ³prio x, quando y = 0. Assim x + 0 = x.', 4, 0),
-(8, 'Ã‰ possÃ­vel que a soma obtenha zero como resultado, bastando para isso que x seja o inverso aditivo de 130.', 4, 1),
+(5, 'É impossível que a soma seja igual a zero, pois sempre que se somam dois nÃºmeros o resultado deve ser maior que eles.', 4, 0),
+(6, 'É possível que a soma seja igual a zero, bastando para isso que x seja o elemento neutro da adição.', 4, 0),
+(7, 'É impossível que a soma seja igual a zero, pois, dados os números x e y, com x menor que y, o menor resultado possível para essa soma é o próprio x, quando y = 0. Assim x + 0 = x.', 4, 0),
+(8, 'É possí­vel que a soma obtenha zero como resultado, bastando para isso que x seja o inverso aditivo de 130.', 4, 1),
 (9, '8000 metros', 5, 0),
 (10, '4289 metros', 5, 0),
 (11, '8578 metros', 5, 1),
 (12, '9000 metros', 5, 0),
-(13, ' Elemento inverso Ã© o nÃºmero zero, e a soma de qualquer parcela com esse elemento resulta na prÃ³pria parcela.', 6, 0),
-(14, 'Associatividade Ã© a propriedade que permite trocar a ordem de uma soma: a + b = b + a.', 6, 0),
-(15, 'O elemento neutro da adiÃ§Ã£o Ã© igual a 1.', 6, 0),
-(16, 'O elemento neutro da adiÃ§Ã£o Ã© o zero.', 6, 1),
+(13, ' Elemento inverso é o número zero, e a soma de qualquer parcela com esse elemento resulta na própria parcela.', 6, 0),
+(14, 'Associatividade é a propriedade que permite trocar a ordem de uma soma: a + b = b + a.', 6, 0),
+(15, 'O elemento neutro da adição é igual a 1.', 6, 0),
+(16, 'O elemento neutro da adição é o zero.', 6, 1),
 (17, '300', 7, 0),
 (18, '395', 7, 1),
 (19, '405', 7, 0),
@@ -150,6 +150,32 @@ INSERT INTO `area` (`ar_idarea`, `ar_descricao`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `ca_idcategoria` int(11) NOT NULL,
+  `ca_idarea` int(11) NOT NULL,
+  `ca_descricao` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`ca_idcategoria`, `ca_idarea`, `ca_descricao`) VALUES
+(1, 6, 'Fração'),
+(2, 6, 'Potenciação'),
+(3, 6, 'Adição'),
+(8, 6, 'Subtração'),
+(9, 6, 'Divisão'),
+(10, 6, 'Multiplicação'),
+(11, 6, 'Função Afim'),
+(12, 6, 'Teorema de Pitágoras');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `nivel`
 --
 
@@ -210,13 +236,13 @@ CREATE TABLE `questao` (
 --
 
 INSERT INTO `questao` (`qu_idquestao`, `qu_idcategoria`, `qu_ano`, `qu_idnivel`, `qu_idusuario`, `qu_pontosquestao`, `qu_textoquestao`) VALUES
-(3, 3, 6, 1, 1, 5, 'JoÃ£o foi ao supermercado e comprou R$ 115,15 em mercadorias. Quando retornou Ã  casa, ele viu que seu filho tambÃ©m havia ido ao mercado e comprado os mesmos produtos. Quanto os dois gastaram juntos?'),
-(4, 3, 6, 1, 1, 10, 'Na adiÃ§Ã£o, existe uma propriedade relacionada Ã  existÃªncia de um elemento inverso para cada nÃºmero. Supondo que o nÃºmero 130 seja somado ao nÃºmero x e que o resultado dessa soma for igual a zero, assinale a alternativa correta:'),
-(5, 3, 6, 1, 1, 5, 'Um fazendeiro mediu sua terra, de formato retangular, para cercÃ¡-la inteiramente com uma cerca de madeira. Quantos metros de cerca ele deverÃ¡ fazer para sua fazenda que possui 1500 metros de largura por 2789 metros de comprimento?'),
-(6, 3, 6, 1, 1, 10, 'A respeito das propriedades da adiÃ§Ã£o, assinale a alternativa correta:'),
-(7, 3, 6, 1, 1, 5, 'Em uma caixa hÃ¡ 126 laranjas e 269 peras. Quantas frutas hÃ¡ na caixa?'),
-(8, 3, 6, 1, 1, 5, 'Para comemorar o aniversÃ¡rio de Paulo, sua mÃ£e comprou 160 latinhas de refrigerante. Dias antes da festa o avÃ´ de Paulo comprou mais 145 latinhas de refrigerante sabor laranja. Quantas latinhas de refrigerante foram compradas para o aniversÃ¡rio de Paulo?'),
-(9, 3, 6, 1, 1, 10, 'Durante o ano, Caio conseguiu juntar o valor de R$ 327,00 atravÃ©s das mesadas que recebe. Caio tambÃ©m ganhou de seu tio o valor de R$ 125,00. Quanto Caio tem em dinheiro?');
+(3, 3, 6, 4, 1, 5, 'João foi ao supermercado e comprou R$ 115,15 em mercadorias. Quando retornou à casa, ele viu que seu filho também havia ido ao mercado e comprado os mesmos produtos. Quanto os dois gastaram juntos?'),
+(4, 3, 6, 1, 1, 10, 'Na adição, existe uma propriedade relacionada à  existência de um elemento inverso para cada número. Supondo que o número 130 seja somado ao número x e que o resultado dessa soma for igual a zero, assinale a alternativa correta:'),
+(5, 3, 6, 1, 1, 5, 'Um fazendeiro mediu sua terra, de formato retangular, para cercá-la inteiramente com uma cerca de madeira. Quantos metros de cerca ele deverá fazer para sua fazenda que possui 1500 metros de largura por 2789 metros de comprimento?'),
+(6, 3, 6, 1, 1, 10, 'A respeito das propriedades da adição, assinale a alternativa correta:'),
+(7, 3, 6, 1, 1, 5, 'Em uma caixa há 126 laranjas e 269 peras. Quantas frutas há na caixa?'),
+(8, 3, 6, 1, 1, 5, 'Para comemorar o aniversário de Paulo, sua mãe comprou 160 latinhas de refrigerante. Dias antes da festa o avô de Paulo comprou mais 145 latinhas de refrigerante sabor laranja. Quantas latinhas de refrigerante foram compradas para o aniversário de Paulo?'),
+(9, 3, 6, 1, 1, 10, 'Durante o ano, Caio conseguiu juntar o valor de R$ 327,00 atravéss das mesadas que recebe. Caio também ganhou de seu tio o valor de R$ 125,00. Quanto Caio tem em dinheiro?');
 
 -- --------------------------------------------------------
 
@@ -237,56 +263,12 @@ CREATE TABLE `resposta` (
 --
 
 INSERT INTO `resposta` (`re_idresposta`, `re_idusuario`, `re_idalternativa`, `re_dataresposta`, `re_idquestao`) VALUES
-(1, 29, 7, '2018-07-27 19:28:47', 4),
-(2, 29, 24, '2018-07-27 19:28:53', 8),
-(3, 29, 8, '2018-07-27 19:28:59', 4),
-(4, 29, 8, '2018-07-27 19:29:19', 4),
-(5, 29, 8, '2018-07-27 19:31:09', 4),
-(6, 29, 8, '2018-07-27 19:31:47', 4),
-(7, 29, 7, '2018-07-27 19:31:53', 4),
-(8, 29, 8, '2018-07-27 19:32:51', 4),
-(9, 29, 8, '2018-07-27 19:37:03', 4),
-(10, 29, 8, '2018-07-27 19:43:28', 4),
-(11, 29, 8, '2018-07-27 20:06:01', 4),
-(12, 29, 8, '2018-07-27 20:06:22', 4),
-(13, 29, 8, '2018-07-27 20:06:42', 4),
-(14, 29, 7, '2018-07-27 20:07:22', 4),
-(15, 29, 8, '2018-07-27 20:14:33', 4),
-(16, 29, 8, '2018-07-27 20:14:56', 4),
-(17, 29, 8, '2018-07-27 20:15:06', 4),
-(18, 29, 8, '2018-07-27 20:19:52', 4),
-(19, 29, 8, '2018-07-27 20:21:16', 4),
-(20, 29, 8, '2018-07-27 20:23:02', 4),
-(21, 29, 7, '2018-07-27 20:23:44', 4),
-(22, 29, 8, '2018-07-27 20:25:33', 4),
-(23, 29, 8, '2018-07-27 20:25:42', 4),
-(24, 29, 8, '2018-07-28 00:32:27', 4),
-(25, 29, 8, '2018-07-28 00:33:30', 4),
-(26, 29, 8, '2018-07-28 00:34:36', 4),
-(27, 29, 7, '2018-07-28 00:37:34', 4),
-(28, 29, 8, '2018-07-28 00:37:47', 4),
-(29, 29, 8, '2018-07-28 00:41:29', 4),
-(30, 29, 8, '2018-07-28 00:43:59', 4),
-(31, 29, 8, '2018-07-28 00:44:32', 4),
-(32, 29, 8, '2018-07-28 00:45:19', 4),
-(33, 29, 8, '2018-07-28 00:45:45', 4),
-(34, 29, 8, '2018-07-28 00:47:43', 4),
-(35, 29, 8, '2018-08-02 15:06:00', 4),
-(36, 29, 8, '2018-08-02 15:06:24', 4),
-(37, 29, 8, '2018-08-02 15:06:58', 4),
-(38, 29, 8, '2018-08-02 15:07:19', 4),
-(39, 29, 8, '2018-08-02 15:08:05', 4),
-(40, 29, 8, '2018-08-02 15:10:18', 4),
-(41, 29, 8, '2018-08-02 15:10:43', 4),
-(42, 29, 8, '2018-08-02 15:11:50', 4),
-(43, 29, 8, '2018-08-02 15:12:46', 4),
-(44, 29, 8, '2018-08-02 15:14:37', 4),
-(45, 29, 8, '2018-08-02 18:32:02', 4),
-(46, 29, 8, '2018-08-02 18:32:41', 4),
-(47, 1, 8, '2018-08-02 19:01:02', 4),
-(48, 1, 7, '2018-08-02 19:29:37', 4),
-(49, 1, 21, '2018-08-02 19:29:42', 8),
-(50, 1, 27, '2018-08-02 19:29:49', 9);
+(88, 8, 8, '2018-08-12 20:56:24', 4),
+(89, 8, 21, '2018-08-12 20:56:28', 8),
+(90, 8, 27, '2018-08-12 20:56:32', 9),
+(91, 29, 8, '2018-08-12 20:56:50', 4),
+(92, 29, 22, '2018-08-12 20:56:55', 8),
+(93, 29, 25, '2018-08-12 20:57:04', 9);
 
 -- --------------------------------------------------------
 
@@ -331,38 +313,38 @@ INSERT INTO `usuario` (`us_idusuario`, `us_nome`, `us_email`, `us_senha`, `us_da
 (1, 'Jefferson Chaves', 'jefferson.chaves@ifc.edu.br', 'jeff123', '1993-08-02'),
 (2, 'Rafael De Moura Speroni', 'rafael.speroni@ifc.edu.br', 'rafael123', '1985-10-15'),
 (6, 'Jonathan Ache Dias', 'jonathan.dias@ifc.edu.br', 'jonathan123', '1990-05-17'),
-(7, 'Adram Adonai TschÃ¡', 'adramadonai@gmail.com', 'adram123', '2000-01-01'),
+(7, 'Adram Adonai Tschá', 'adramadonai@gmail.com', 'adram123', '2000-01-01'),
 (8, 'Andriele Cristina Vogel', 'andrielletrabalho@gmail.com', 'andriele', '2000-01-02'),
 (9, 'Bruno Almeida de Morais', 'brunomoraisalmeida3436@gmail.com', 'bruno', '2000-01-03'),
-(10, 'CecÃ­lia de Borba', 'ceciliaborba.sfs@gmail.com', 'cecilia', '2000-01-04'),
+(10, 'Cecília de Borba', 'ceciliaborba.sfs@gmail.com', 'cecilia', '2000-01-04'),
 (11, 'Elisa Cristina Camargo Laufer', 'elisa.cristina.laufer@gmail.com', 'elisa', '2000-01-05'),
 (12, 'Gean Carlos Santos da Silva', 'torinoge@gmail.com', 'gean', '2000-01-06'),
 (13, 'Guilherme Henrique Boing', 'guihboing@gmail.com', 'guilherme', '2000-01-07'),
 (14, 'Henrique Luiz Hartmann', 'alemaohartmann@gmail.com', 'henrique', '2000-01-08'),
 (15, 'Jalieny Ouriques', 'Jjali.ouriques.90@gmail.com', 'jalieny', '2000-01-09'),
-(16, 'JoÃ£o Vitor dos Santos', 'joaovitorjec@gmail.com', 'joao', '2000-01-10'),
+(16, 'João Vitor dos Santos', 'joaovitorjec@gmail.com', 'joao', '2000-01-10'),
 (17, 'Leonardo Adriano Vieira', 'leonardovieirabfh@gmail.com', 'leonardo', '2000-01-11'),
 (18, 'Luan Alflen', 'luan.alflen4@gmail.com', 'luan', '2000-01-12'),
 (19, 'Marlon Cesar Kotviski Guarnieri da Silva', 'marlonguarnieri@gmail.com', 'marlon', '2000-01-13'),
-(20, 'Pedro JosÃ© Gomes Neto', 'pedrogomesjoseneto@gmail.com', 'pedro', '2000-01-14'),
-(21, 'Taina Cristina Vollmann Monteiro', 'tainavollmann@gmail.com', 'taina', '2000-01-14'),
-(22, 'Tainara EleutÃ©rio de Souza', 'tainaraeleu@gmail.com', 'tainara', '2000-01-16'),
+(20, 'Pedro José Gomes Neto', 'pedrogomesjoseneto@gmail.com', 'pedro', '2000-01-14'),
+(21, 'Tainá Cristina Vollmann Monteiro', 'tainavollmann@gmail.com', 'taina', '2000-01-14'),
+(22, 'Tainara Eleutério de Souza', 'tainaraeleu@gmail.com', 'tainara', '2000-01-16'),
 (23, 'Victor Hugo Prado Gomes', 'vitorvex@gmail.com', 'victor', '2000-01-17'),
-(24, 'AndrÃ© Luiz Pacheco da Costa', 'anddreluiz1@gmail.com', 'andre', '2000-01-18'),
+(24, 'André Luiz Pacheco da Costa', 'anddreluiz1@gmail.com', 'andre', '2000-01-18'),
 (25, 'Asaph Varela da Silva', 'asaph_varela@hotmail.com', 'asaph', '2000-01-19'),
-(26, 'Bryan Matheus KrÃ¼ger', 'trkimbituva@yahoo.com.br', 'bryan', '2000-01-20'),
+(26, 'Bryan Matheus Kruger', 'trkimbituva@yahoo.com.br', 'bryan', '2000-01-20'),
 (27, 'Christian Henrique da Silva Machado', 'christianrick2000@gmail.com', 'christian', '2000-01-21'),
 (28, 'Felipe Oliveira Borba', 'felipepborba@hotmail.com', 'felipe', '2000-01-22'),
 (29, 'Guilherme Cipriano', 'guilherme.cp@live.com', 'cipriano', '2000-01-23'),
-(30, 'Heloiza de FÃ¡tima Kutenski', 'heloizafatimakutenski@gmail.com', 'heloiza', '2000-01-24'),
+(30, 'Heloiza de Fátima Kutenski', 'heloizafatimakutenski@gmail.com', 'heloiza', '2000-01-24'),
 (31, 'Hugo Gutzmann Pulga', 'facahugo@gmail.com', 'hugo', '2000-01-25'),
-(32, 'JÃ©ssica Yohana Otto', 'jessicayohanaotto@gmail.com', 'jessica', '2000-01-26'),
-(33, 'Lauro AntÃ´nio do Nascimento', 'nascimento@apsfs.sc.gov.br', 'lauro', '2000-01-27'),
+(32, 'Jéssica Yohana Otto', 'jessicayohanaotto@gmail.com', 'jessica', '2000-01-26'),
+(33, 'Lauro Antônio do Nascimento', 'nascimento@apsfs.sc.gov.br', 'lauro', '2000-01-27'),
 (34, 'Leonardo Edenir Rodrigues Graciano', 'leonardo.edenirgraciano@gmail.com', 'leonardo1', '2000-01-27'),
 (35, 'Maria Luiza de Souza de Oliveira', 'souzamalu2016@gmail.com', 'maria', '2000-01-28'),
-(36, 'Mateus MÃ¶ller Erkmann ', 'erkmann08@gmail.com', 'mateus', '2000-01-29'),
+(36, 'Mateus Moller Erkmann ', 'erkmann08@gmail.com', 'mateus', '2000-01-29'),
 (37, 'Suelen Cruz Barcelos', 'suh.barcellos82@gmail.com', 'suelen', '2000-01-30'),
-(38, 'TainÃ¡ Langa', 'langataina@gmail.com', 'taina', '2000-01-31'),
+(38, 'Tainá Langa', 'langataina@gmail.com', 'taina', '2000-01-31'),
 (39, 'Thiago Henrique Walter', 'thiagohwalter@gmail.com', 'thiago', '2000-02-01'),
 (40, 'Vinicius Soledade da Silva', 'viniciussoledade13@gmail.com', 'vinicius', '2000-02-02');
 
@@ -389,6 +371,13 @@ ALTER TABLE `aluno`
 --
 ALTER TABLE `area`
   ADD PRIMARY KEY (`ar_idarea`);
+
+--
+-- Indexes for table `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`ca_idcategoria`),
+  ADD KEY `ca_idarea` (`ca_idarea`);
 
 --
 -- Indexes for table `nivel`
@@ -448,13 +437,19 @@ ALTER TABLE `alternativas`
 -- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `al_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `al_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `area`
 --
 ALTER TABLE `area`
   MODIFY `ar_idarea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `ca_idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `nivel`
@@ -472,7 +467,7 @@ ALTER TABLE `questao`
 -- AUTO_INCREMENT for table `resposta`
 --
 ALTER TABLE `resposta`
-  MODIFY `re_idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `re_idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT for table `turma`
@@ -484,7 +479,7 @@ ALTER TABLE `turma`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `us_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `us_idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables
@@ -502,6 +497,12 @@ ALTER TABLE `alternativas`
 ALTER TABLE `aluno`
   ADD CONSTRAINT `al_turma` FOREIGN KEY (`al_turma`) REFERENCES `turma` (`tu_idturma`) ON UPDATE CASCADE,
   ADD CONSTRAINT `al_usuario` FOREIGN KEY (`al_idusuario`) REFERENCES `usuario` (`us_idusuario`);
+
+--
+-- Limitadores para a tabela `categoria`
+--
+ALTER TABLE `categoria`
+  ADD CONSTRAINT `ca_idarea` FOREIGN KEY (`ca_idarea`) REFERENCES `area` (`ar_idarea`);
 
 --
 -- Limitadores para a tabela `professor`
