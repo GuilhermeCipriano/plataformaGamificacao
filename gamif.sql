@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 13-Ago-2018 às 01:49
--- Versão do servidor: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: 10-Set-2018 às 21:36
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -67,7 +67,15 @@ INSERT INTO `alternativas` (`al_idalternativa`, `al_texto`, `al_idquestao`, `al_
 (25, 'R$452,00', 9, 1),
 (26, 'R$402,00', 9, 0),
 (27, 'R$392,00', 9, 0),
-(28, 'R$442,00', 9, 0);
+(28, 'R$442,00', 9, 0),
+(29, '1945', 10, 1),
+(30, '1918', 10, 0),
+(31, '1946', 10, 0),
+(32, '1919', 10, 0),
+(33, '1914', 12, 0),
+(34, '1915', 12, 0),
+(35, '1939', 12, 1),
+(36, '1940', 12, 0);
 
 -- --------------------------------------------------------
 
@@ -110,7 +118,7 @@ INSERT INTO `aluno` (`al_idusuario`, `al_matricula`, `al_ano`, `al_turma`, `al_p
 (26, '2016301564', 8, 2, 0),
 (27, '2016301582', 8, 2, 0),
 (28, '2016301608', 8, 3, 0),
-(29, '2016301626', 8, 3, 0),
+(29, '2016301626', 8, 3, 5),
 (30, '2016301644', 8, 4, 0),
 (31, '2016301662', 8, 4, 0),
 (32, '2016301680', 9, 1, 0),
@@ -121,7 +129,8 @@ INSERT INTO `aluno` (`al_idusuario`, `al_matricula`, `al_ano`, `al_turma`, `al_p
 (37, '2016301770', 9, 3, 0),
 (38, '2016301798', 0, 4, 0),
 (39, '2016301813', 9, 4, 0),
-(40, '2016301831', 7, 1, 0);
+(40, '2016301831', 7, 1, 0),
+(41, '00111', 6, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +180,10 @@ INSERT INTO `categoria` (`ca_idcategoria`, `ca_idarea`, `ca_descricao`) VALUES
 (9, 6, 'Divisão'),
 (10, 6, 'Multiplicação'),
 (11, 6, 'Função Afim'),
-(12, 6, 'Teorema de Pitágoras');
+(12, 6, 'Teorema de Pitágoras'),
+(13, 4, 'Segunda Guerra Mundial'),
+(14, 3, 'Fontes Renováveis'),
+(15, 3, 'Petróleo');
 
 -- --------------------------------------------------------
 
@@ -237,12 +249,15 @@ CREATE TABLE `questao` (
 
 INSERT INTO `questao` (`qu_idquestao`, `qu_idcategoria`, `qu_ano`, `qu_idnivel`, `qu_idusuario`, `qu_pontosquestao`, `qu_textoquestao`) VALUES
 (3, 3, 6, 4, 1, 5, 'João foi ao supermercado e comprou R$ 115,15 em mercadorias. Quando retornou à casa, ele viu que seu filho também havia ido ao mercado e comprado os mesmos produtos. Quanto os dois gastaram juntos?'),
-(4, 3, 6, 1, 1, 10, 'Na adição, existe uma propriedade relacionada à  existência de um elemento inverso para cada número. Supondo que o número 130 seja somado ao número x e que o resultado dessa soma for igual a zero, assinale a alternativa correta:'),
+(4, 3, 6, 1, 1, 10, 'Na adição, existe uma propriedade relacionada à  existência de um elemento inverso para cada número. Supondo que o número 130 seja somado ao número x e que o resultado dessa soma for igual a zero, assinale a alternativa correta:'),
 (5, 3, 6, 1, 1, 5, 'Um fazendeiro mediu sua terra, de formato retangular, para cercá-la inteiramente com uma cerca de madeira. Quantos metros de cerca ele deverá fazer para sua fazenda que possui 1500 metros de largura por 2789 metros de comprimento?'),
 (6, 3, 6, 1, 1, 10, 'A respeito das propriedades da adição, assinale a alternativa correta:'),
 (7, 3, 6, 1, 1, 5, 'Em uma caixa há 126 laranjas e 269 peras. Quantas frutas há na caixa?'),
 (8, 3, 6, 1, 1, 5, 'Para comemorar o aniversário de Paulo, sua mãe comprou 160 latinhas de refrigerante. Dias antes da festa o avô de Paulo comprou mais 145 latinhas de refrigerante sabor laranja. Quantas latinhas de refrigerante foram compradas para o aniversário de Paulo?'),
-(9, 3, 6, 1, 1, 10, 'Durante o ano, Caio conseguiu juntar o valor de R$ 327,00 atravéss das mesadas que recebe. Caio também ganhou de seu tio o valor de R$ 125,00. Quanto Caio tem em dinheiro?');
+(9, 3, 6, 1, 1, 10, 'Durante o ano, Caio conseguiu juntar o valor de R$ 327,00 atravéss das mesadas que recebe. Caio também ganhou de seu tio o valor de R$ 125,00. Quanto Caio tem em dinheiro?'),
+(10, 13, 6, 1, 1, 5, 'Fim da Segunda Guerra Mundial'),
+(11, 13, 9, 1, 1, 10, 'Início da Segunda Guerra Mundial'),
+(12, 13, 9, 1, 1, 10, 'Início da Segunda Guerra Mundial');
 
 -- --------------------------------------------------------
 
@@ -268,7 +283,19 @@ INSERT INTO `resposta` (`re_idresposta`, `re_idusuario`, `re_idalternativa`, `re
 (90, 8, 27, '2018-08-12 20:56:32', 9),
 (91, 29, 8, '2018-08-12 20:56:50', 4),
 (92, 29, 22, '2018-08-12 20:56:55', 8),
-(93, 29, 25, '2018-08-12 20:57:04', 9);
+(93, 29, 25, '2018-08-12 20:57:04', 9),
+(98, 29, 29, '2018-08-17 19:17:54', 10),
+(99, 1, 8, '2018-08-21 21:59:07', 4),
+(100, 41, 5, '2018-08-22 17:23:39', 4),
+(101, 41, 21, '2018-08-22 17:23:54', 8),
+(102, 41, 26, '2018-08-22 17:30:36', 9),
+(103, 41, 3, '2018-08-22 17:30:43', 3),
+(104, 41, 10, '2018-08-22 17:30:49', 5),
+(105, 41, 19, '2018-08-22 17:30:55', 7),
+(106, 41, 15, '2018-08-22 17:31:03', 6),
+(107, 1, 8, '2018-09-05 20:00:26', 4),
+(108, 1, 22, '2018-09-05 20:00:32', 8),
+(109, 1, 26, '2018-09-05 20:00:37', 9);
 
 -- --------------------------------------------------------
 
@@ -346,7 +373,8 @@ INSERT INTO `usuario` (`us_idusuario`, `us_nome`, `us_email`, `us_senha`, `us_da
 (37, 'Suelen Cruz Barcelos', 'suh.barcellos82@gmail.com', 'suelen', '2000-01-30'),
 (38, 'Tainá Langa', 'langataina@gmail.com', 'taina', '2000-01-31'),
 (39, 'Thiago Henrique Walter', 'thiagohwalter@gmail.com', 'thiago', '2000-02-01'),
-(40, 'Vinicius Soledade da Silva', 'viniciussoledade13@gmail.com', 'vinicius', '2000-02-02');
+(40, 'Vinicius Soledade da Silva', 'viniciussoledade13@gmail.com', 'vinicius', '2000-02-02'),
+(41, 'fabiolongo', 'fabio@fabio.com', 'fabio', '1984-09-04');
 
 --
 -- Indexes for dumped tables
@@ -431,7 +459,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `alternativas`
 --
 ALTER TABLE `alternativas`
-  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `al_idalternativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `aluno`
@@ -449,7 +477,7 @@ ALTER TABLE `area`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `ca_idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ca_idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `nivel`
@@ -461,13 +489,13 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT for table `questao`
 --
 ALTER TABLE `questao`
-  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `qu_idquestao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `resposta`
 --
 ALTER TABLE `resposta`
-  MODIFY `re_idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `re_idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT for table `turma`
